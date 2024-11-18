@@ -1232,36 +1232,7 @@ model &lt;- model %&gt;% layer_dropout(rate = 0.5)
 </li>
 </ul>
 </section><section>
-<h1 id="group-projects">Group Projects</h1>
-</section>
-
-<section data-noprocess data-shortcode-slide
-      data-background-image="cms.png">
-  
-<h1 id="span-stylecolorfff-particle-physicsspan"><span style="color:#fff;"> Particle Physics</span></h1>
-</section><section>
-<h2 id="artificial-neural-networks-59">Artificial Neural Networks</h2>
-<h3 id="the-particle-physics-project">The Particle Physics Project</h3>
-<center><a href="atlas_particle_shower.jpg" target="_blank"><img src="atlas_particle_shower.jpg" width="500px"/></a></center>
-</section><section>
-<h2 id="artificial-neural-networks-60">Artificial Neural Networks</h2>
-<h3 id="the-particle-physics-project-1">The Particle Physics Project</h3>
-<center><a href="jet-images.png" target="_blank"><img src="jet-images.png" width="500px"/></a></center>
-</section><section>
-<h2 id="artificial-neural-networks-61">Artificial Neural Networks</h2>
-<h3 id="the-particle-physics-project-2">The Particle Physics Project</h3>
-<ul>
-<li>Quantum Chromodynamics</li>
-</ul>
-<center><a href="qcd.png" target="_blank"><img src="qcd.png" width="500px"/></a></center>
-</section><section>
-<h2 id="artificial-neural-networks-62">Artificial Neural Networks</h2>
-<h3 id="signal-vs-background">Signal VS Background</h3>
-<center><a href="backgroundVSsignal.png" target="_blank"><img src="backgroundVSsignal.png" width="700px"/></a></center>
-</section><section>
-<h2 id="artificial-neural-networks-63">Artificial Neural Networks</h2>
-<h3 id="signal-vs-background-1">Signal VS Background</h3>
-<p>Run this <a href="https://colab.research.google.com/drive/1zauFbl7qwyv4wXFp1K5ldfXxD_1QzO6R?usp=sharing" target="_blank">Jupyter Notebook</a> for performing the Jet Classification.</p>
+<h1 id="small-group-projects">Small Group Projects</h1>
 </section>
 
 <section data-noprocess data-shortcode-slide
@@ -1269,13 +1240,274 @@ model &lt;- model %&gt;% layer_dropout(rate = 0.5)
   
 <h1 id="span-stylecolorff0000covid19-chest-ct-image-processingspan"><span style="color:#ff0000;">COVID19 Chest CT Image Processing</span></h1>
 </section><section>
-<h2 id="artificial-neural-networks-64">Artificial Neural Networks</h2>
+<h2 id="artificial-neural-networks-59">Artificial Neural Networks</h2>
 <h3 id="covid19-diagnosis">COVID19 Diagnosis</h3>
 <center><a href="COVIDCT1.png" target="_blank"><img src="COVIDCT1.png" width="500px"/></a></center>
 </section><section>
-<h2 id="artificial-neural-networks-65">Artificial Neural Networks</h2>
+<h2 id="artificial-neural-networks-60">Artificial Neural Networks</h2>
 <h3 id="covid19-diagnosis-1">COVID19 Diagnosis</h3>
 <p>Run this <a href="https://colab.research.google.com/drive/1S1UQxmDHewXrR_C69mZmoXaP57nGH2X6?usp=sharing" target="_blank">Jupyter Notebook</a> for performing the CT Image Classification.</p>
+</section><section>
+<h1 id="convolutional-neural-networks">Convolutional Neural Networks</h1>
+</section><section>
+<h2 id="introduction">Introduction</h2>
+<ul>
+<li><strong>Deep learning</strong>
+<ul>
+<li>Branch of machine learning that uses neural networks with <em>multiple layers</em></li>
+<li>Employ layers to progressively learn <em>different levels of features</em> from input data</li>
+<li>Abstraction increase as more layers are used for <em>feature extraction</em> and learning</li>
+</ul>
+</li>
+</ul>
+
+
+<span class='fragment ' ><ul>
+<li>Among deep learning techniques, special attention has been given to <em>Convolutional Neural Networks</em> (CNNs).</li>
+<li>These models have a <em>high capacity for data representation</em>, yielding promising results in numerous fields of knowledge.</li>
+</ul>
+</span>
+
+
+</section><section>
+<h2 id="convolutional-neural-networks-1">Convolutional Neural Networks</h2>
+<ul>
+<li>The basic idea is to use <em>raw data</em> as input</li>
+<li>Allow the network to learn the <em>most important features</em> for the problem at hand.</li>
+<li><em>Eliminates the need to manually extract features</em> (handcrafted features).</li>
+</ul>
+<img width="450" src="CNN_Fig1.png" />
+</section><section>
+<h2 id="convolutional-neural-networks-2">Convolutional Neural Networks</h2>
+<ul>
+<li>Generally composed of two  modules:
+
+
+<span class='fragment ' ><ol>
+<li>Feature learning: performed through convolution, pooling, and activation operations.</li>
+</ol>
+</span>
+
+
+
+
+<span class='fragment ' ><ol start="2">
+<li>Classification: typically  fully connected layers and a softmax output layer.</li>
+</ol>
+</span>
+
+</li>
+</ul>
+
+
+<span class='fragment ' ><img width="500" src="CNN_Fig2.png" />
+</span>
+
+
+</section><section>
+<h2 id="convolutional-neural-networks-3">Convolutional Neural Networks</h2>
+<ul>
+<li>What makes CNNs so interesting for various pattern classification tasks?</li>
+<li><strong>feature learning</strong>
+<ul>
+<li>Important information (like texture) is learned at different levels</li>
+</ul>
+</li>
+<li>Less susceptible to <em>rotation</em>, <em>translation</em>, and <em>scale issues</em>.</li>
+<li>To understand how they work, we will first study the feature learning layers
+<ul>
+<li>(i) convolution, (ii) pooling, and (iii) activation operations.</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h2 id="feature-learning">Feature Learning</h2>
+<h3 id="convolution">Convolution</h3>
+<ul>
+<li><em>Convolution</em> are widely used in image processing and computer vision tasks, such as image filtering (blurring and noise) and edge detection
+<br /><br /></li>
+</ul>
+<center>
+<img width="650" src="CNN_Fig3.png" />
+</center>
+</section><section>
+<h2 id="convolution-1">Convolution</h2>
+<img width="450" src="CNN_Fig4.png" />
+<ul>
+<li>The central position of the 9x9 input is replaced by its convolution with the 5x5 mask</li>
+<li>The value is stored in the 5x5 output matrix (feature map).</li>
+<li>The procedure is repeated until the entire input matrix has been evaluated.</li>
+</ul>
+</section><section>
+<h2 id="what-are-the-hyperparameters-involved-in-a-convolution-operation">What are the hyperparameters involved in a convolution operation?</h2>
+
+
+<span class='fragment ' ><h3 id="parameters-vs-hyperparameters">Parameters vs. hyperparameters</h3>
+</span>
+
+
+
+
+<span class='fragment ' ><ul>
+<li>What type of mask (kernel) will we use?</li>
+<li>What is the best dimension?</li>
+<li>How many filters will be employed?</li>
+<li>What is the value of the stride?</li>
+</ul>
+</span>
+
+
+</section><section>
+<h2 id="number-of-parameters">Number of Parameters</h2>
+<ul>
+<li>Values in the masks that can be interpreted as <em>weights</em>: learned by the CNN during its training process.</li>
+</ul>
+<img width="450" src="CNN_Fig7.png" />
+<p><strong>Number of parameters to be learned: 2,515.</strong></p>
+</section><section>
+<h3 id="what-is-the-role-of-the-hyperparameter-values-in-a-cnn">What is the role of the hyperparameter values in a CNN?</h3>
+<ul>
+<li><em>Kernel size:</em>
+<ul>
+<li><strong>Small kernels</strong> extract more local information (local features) with size reductions between layers smaller (deeper architectures)</li>
+<li><strong>Larger kernels</strong>  faster size reductions of feature maps and extract more global information</li>
+</ul>
+</li>
+<li><em>Stride value</em>: similar impact to kernel size
+<ul>
+<li><strong>Larger values</strong>: faster reductions of feature maps</li>
+<li><strong>Smaller stride</strong>: more features being learned</li>
+</ul>
+</li>
+</ul>
+<p>
+
+<span class='fragment ' >Since smaller stride values and kernel sizes enable more features to be learned, why not always adopt them?</span>
+
+ 
+
+<span class='fragment ' ><strong>This requires larger datasets.</strong></span>
+
+</p>
+</section><section>
+<h2 id="convolutions">Convolutions</h2>
+<h4 id="in-summary-we-have-to-make-decisions-about-the-following-items-regarding-a-convolution-layer">In summary, we have to make decisions about the following items regarding a convolution layer:</h4>
+<ol>
+
+
+<span class='fragment ' ><li><em>Type of padding</em></li></span>
+
+
+
+
+<span class='fragment ' ><li><em>Kernel size</em></li></span>
+
+
+
+
+<span class='fragment ' ><li><em>Stride value</em></li></span>
+
+
+
+
+<span class='fragment ' ><li><em>Number of filters</em></li></span>
+
+
+</ol>
+</section><section>
+<h2 id="pooling">Pooling</h2>
+<ul>
+<li><strong>Decrease the resolution</strong> (downsampling) of the feature maps and</li>
+<li>Add <strong>invariance properties</strong> to the network.</li>
+<li>Feature maps size reduction leads to a decrease in the number of parameters to be learned by the network
+<ul>
+<li><em>More efficient training</em></li>
+</ul>
+</li>
+<li><em>Max-Pooling</em></li>
+<li><em>Average Pooling</em></li>
+<li><em>Global Pooling</em></li>
+</ul>
+</section><section>
+<h3 id="some-illustrations-to-exemplify-the-functioning-of-the-mentioned-types-of-pooling">Some illustrations to exemplify the functioning of the mentioned types of pooling.</h3>
+<ul>
+<li>Max-Pooling (stride = 2)</li>
+</ul>
+<p><img width="450" src="CNN_Fig8.png" /></p>
+</section><section>
+<h3 id="some-illustrations-to-exemplify-the-functioning-of-the-mentioned-types-of-pooling-1">Some illustrations to exemplify the functioning of the mentioned types of pooling.</h3>
+<ul>
+<li>Average Pooling (stride = 2)</li>
+</ul>
+<p><img width="450" src="CNN_Fig9.png" /></p>
+</section><section>
+<h2 id="pooling-1">Pooling</h2>
+<ul>
+<li>Global Pooling
+<ul>
+<li>More radical in the context of downsampling</li>
+<li>Reduces the entire feature map to a single value</li>
+<li>In this case, we can use either max-pooling or average pooling</li>
+</ul>
+</li>
+<li>Generally, max-pooling layers tend to provide better results
+<ul>
+<li>more informative to use the highest value within a window than to &ldquo;mask&rdquo; them with their average value</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h2 id="flattening">Flattening</h2>
+<ul>
+<li>Before sending our data to the fully connected layers, we need to &ldquo;flatten&rdquo; the <strong>tensor</strong> (data)</li>
+<li>Receive input with multiple dimensions (feature maps) and the output is a one-dimensional vector</li>
+</ul>
+<img style="margin-right:100px;" width="250" src="CNN_Fig11.png" /> 
+<img width="280" src="CNN_Fig12.png" />
+</section><section>
+<h2 id="fully-connected--dropout">Fully Connected + Dropout</h2>
+<ul>
+<li>The final part consists of adopting fully connected layers
+<ul>
+<li>Similar to an MLP Neural Network, with a softmax output at the end</li>
+<li>It is also common to adopt a regularization technique known as <strong>Dropout</strong>, which &ldquo;removes&rdquo; neurons randomly to speed up the training process and prevent overfitting</li>
+</ul>
+</li>
+</ul>
+<img width="500" src="CNN_Fig13.png" />
+</section><section>
+<h2 id="keras-implementation">Keras Implementation</h2>
+<pre><code class="language-R">model &lt;- keras_model_sequential(input_shape = c(28, 28, 1))
+model %&gt;%
+  layer_conv_2d(filters = 2, kernel_size = c(2, 2), activation = &quot;relu&quot;) %&gt;%
+  layer_max_pooling_2d(pool_size = c(2, 2)) %&gt;%
+  layer_flatten() %&gt;%
+  layer_dropout(rate = 0.5) %&gt;%
+  layer_dense(units = 10, activation = &quot;softmax&quot;)
+</code></pre>
+<ul>
+<li>The <code>layer_conv_2d</code> represents a convolution layer</li>
+<li>The <code>layer_max_pooling_2d</code> represents a pooling strategy</li>
+<li>The <code>layer_flatten()</code> is responsible for linearizing the output of the feature selection</li>
+</ul>
+</section><section>
+<h1 id="building-an-mnist-solution-using-convolutions">Building an MNIST solution using Convolutions</h1>
+<p>Apply your knowledge you acquire to perform the classification in the <a href="https://www.kaggle.com/datasets/zalando-research/fashionmnist">Fashion MNIST classification problem</a>.</p>
+<ul>
+<li>Things to try:
+<ul>
+<li>Increase the number of Filters;</li>
+<li>Add <em>Max Pooling</em> layers;</li>
+<li>Increase the amount of convolutional layers</li>
+</ul>
+</li>
+</ul>
+
+
+<span class='fragment ' ><p><a href="https://colab.research.google.com/drive/1BrLz2ka-IfoUp-wS-P_rZZBty4OZApdA?usp=sharing" target="_blank">Convnet Notebook</a></p>
+</span>
+
+
 </section>
 
 </div>
