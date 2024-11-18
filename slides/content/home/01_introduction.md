@@ -886,41 +886,7 @@ model <- model %>% layer_dropout(rate = 0.5)
 * <a href="https://colab.research.google.com/drive/1PYgAO-u04vOPCm-XyZPl_ck4RPJ-Jeag?usp=sharing" target="_blank">My solution</a>.
 
 ---
-# Group Projects
-
----
-{{<slide background-image="cms.png">}}
-# <span style="color:#fff;"> Particle Physics</span>
-
----
-## Artificial Neural Networks
-### The Particle Physics Project
-
-<center><a href="atlas_particle_shower.jpg" target="_blank"><img src="atlas_particle_shower.jpg" width="500px"/></a></center>
-
----
-## Artificial Neural Networks
-### The Particle Physics Project
-
-<center><a href="jet-images.png" target="_blank"><img src="jet-images.png" width="500px"/></a></center>
-
----
-## Artificial Neural Networks
-### The Particle Physics Project
-* Quantum Chromodynamics
-<center><a href="qcd.png" target="_blank"><img src="qcd.png" width="500px"/></a></center>
-
----
-## Artificial Neural Networks
-### Signal VS Background
-
-<center><a href="backgroundVSsignal.png" target="_blank"><img src="backgroundVSsignal.png" width="700px"/></a></center>
-
----
-## Artificial Neural Networks
-### Signal VS Background
-
-Run this <a href="https://colab.research.google.com/drive/1zauFbl7qwyv4wXFp1K5ldfXxD_1QzO6R?usp=sharing" target="_blank">Jupyter Notebook</a> for performing the Jet Classification.
+# Small Group Projects
 
 ---
 
@@ -938,3 +904,203 @@ Run this <a href="https://colab.research.google.com/drive/1zauFbl7qwyv4wXFp1K5ld
 ### COVID19 Diagnosis
 
 Run this <a href="https://colab.research.google.com/drive/1S1UQxmDHewXrR_C69mZmoXaP57nGH2X6?usp=sharing" target="_blank">Jupyter Notebook</a> for performing the CT Image Classification.
+
+
+---
+# Convolutional Neural Networks
+
+---
+## Introduction
+
+* **Deep learning** 
+  * Branch of machine learning that uses neural networks with <em>multiple layers</em>
+  * Employ layers to progressively learn <em>different levels of features</em> from input data
+  * Abstraction increase as more layers are used for <em>feature extraction</em> and learning
+
+{{% fragment %}}
+* Among deep learning techniques, special attention has been given to <em>Convolutional Neural Networks</em> (CNNs). 
+* These models have a <em>high capacity for data representation</em>, yielding promising results in numerous fields of knowledge.
+{{% /fragment %}}
+
+---
+## Convolutional Neural Networks
+
+* The basic idea is to use <em>raw data</em> as input 
+* Allow the network to learn the <em>most important features</em> for the problem at hand. 
+* <em>Eliminates the need to manually extract features</em> (handcrafted features).
+
+<img width="450" src="CNN_Fig1.png" />
+
+---
+## Convolutional Neural Networks
+
+* Generally composed of two  modules: 
+{{% fragment %}}
+  1. Feature learning: performed through convolution, pooling, and activation operations. 
+{{% /fragment %}}
+{{% fragment %}}
+  2. Classification: typically  fully connected layers and a softmax output layer.
+{{% /fragment %}}
+
+{{% fragment %}}
+<img width="500" src="CNN_Fig2.png" />
+{{% /fragment %}}
+
+---
+## Convolutional Neural Networks
+* What makes CNNs so interesting for various pattern classification tasks? 
+* **feature learning** 
+  * Important information (like texture) is learned at different levels
+* Less susceptible to <em>rotation</em>, <em>translation</em>, and <em>scale issues</em>.
+* To understand how they work, we will first study the feature learning layers
+  * (i) convolution, (ii) pooling, and (iii) activation operations.
+
+---
+## Feature Learning
+
+### Convolution
+
+* <em>Convolution</em> are widely used in image processing and computer vision tasks, such as image filtering (blurring and noise) and edge detection
+<br /><br />
+<center>
+<img width="650" src="CNN_Fig3.png" />
+</center>
+
+---
+## Convolution
+
+<img width="450" src="CNN_Fig4.png" />
+
+* The central position of the 9x9 input is replaced by its convolution with the 5x5 mask
+* The value is stored in the 5x5 output matrix (feature map).
+* The procedure is repeated until the entire input matrix has been evaluated. 
+
+---
+## What are the hyperparameters involved in a convolution operation?
+
+{{% fragment %}}
+### Parameters vs. hyperparameters
+{{% /fragment %}}
+
+{{% fragment %}}
+* What type of mask (kernel) will we use?
+* What is the best dimension?
+* How many filters will be employed?
+* What is the value of the stride?
+{{% /fragment %}}
+
+---
+## Number of Parameters
+
+* Values in the masks that can be interpreted as <em>weights</em>: learned by the CNN during its training process. 
+
+<img width="450" src="CNN_Fig7.png" />
+
+**Number of parameters to be learned: 2,515.**
+
+---
+### What is the role of the hyperparameter values in a CNN?
+
+* <em>Kernel size:</em>
+  * **Small kernels** extract more local information (local features) with size reductions between layers smaller (deeper architectures)
+  * **Larger kernels**  faster size reductions of feature maps and extract more global information
+* <em>Stride value</em>: similar impact to kernel size
+  * **Larger values**: faster reductions of feature maps
+  * **Smaller stride**: more features being learned
+  
+{{% fragment %}}Since smaller stride values and kernel sizes enable more features to be learned, why not always adopt them?{{% /fragment %}} {{% fragment %}}**This requires larger datasets.**{{% /fragment %}}
+
+---
+## Convolutions 
+#### In summary, we have to make decisions about the following items regarding a convolution layer:
+<ol>
+{{% fragment %}}<li><em>Type of padding</em></li>{{% /fragment %}}
+
+{{% fragment %}}<li><em>Kernel size</em></li>{{% /fragment %}}
+
+{{% fragment %}}<li><em>Stride value</em></li>{{% /fragment %}}
+
+{{% fragment %}}<li><em>Number of filters</em></li>{{% /fragment %}}
+</ol>
+
+---
+## Pooling
+
+* **Decrease the resolution** (downsampling) of the feature maps and 
+* Add **invariance properties** to the network. 
+* Feature maps size reduction leads to a decrease in the number of parameters to be learned by the network
+  * <em>More efficient training</em>
+* <em>Max-Pooling</em>
+* <em>Average Pooling</em>
+* <em>Global Pooling</em>
+
+---
+### Some illustrations to exemplify the functioning of the mentioned types of pooling.
+
+* Max-Pooling (stride = 2)
+<p><img width="450" src="CNN_Fig8.png" /></p>
+
+---
+### Some illustrations to exemplify the functioning of the mentioned types of pooling.
+* Average Pooling (stride = 2)
+<p><img width="450" src="CNN_Fig9.png" /></p>
+
+---
+##  Pooling
+
+* Global Pooling
+  * More radical in the context of downsampling
+  * Reduces the entire feature map to a single value
+  * In this case, we can use either max-pooling or average pooling
+* Generally, max-pooling layers tend to provide better results
+  * more informative to use the highest value within a window than to "mask" them with their average value
+
+---
+## Flattening
+
+* Before sending our data to the fully connected layers, we need to "flatten" the **tensor** (data) 
+* Receive input with multiple dimensions (feature maps) and the output is a one-dimensional vector
+
+<img style="margin-right:100px;" width="250" src="CNN_Fig11.png" /> 
+<img width="280" src="CNN_Fig12.png" />
+
+---
+## Fully Connected + Dropout
+
+* The final part consists of adopting fully connected layers
+  * Similar to an MLP Neural Network, with a softmax output at the end
+  * It is also common to adopt a regularization technique known as **Dropout**, which "removes" neurons randomly to speed up the training process and prevent overfitting
+
+<img width="500" src="CNN_Fig13.png" />
+
+---
+## Keras Implementation
+```R
+model <- keras_model_sequential(input_shape = c(28, 28, 1))
+model %>%
+  layer_conv_2d(filters = 2, kernel_size = c(2, 2), activation = "relu") %>%
+  layer_max_pooling_2d(pool_size = c(2, 2)) %>%
+  layer_flatten() %>%
+  layer_dropout(rate = 0.5) %>%
+  layer_dense(units = 10, activation = "softmax")
+```
+* The `layer_conv_2d` represents a convolution layer
+* The `layer_max_pooling_2d` represents a pooling strategy
+* The `layer_flatten()` is responsible for linearizing the output of the feature selection
+
+---
+# Building an MNIST solution using Convolutions
+
+Apply your knowledge you acquire to perform the classification in the [Fashion MNIST classification problem](https://www.kaggle.com/datasets/zalando-research/fashionmnist).
+* Things to try:
+  * Increase the number of Filters;
+  * Add _Max Pooling_ layers;
+  * Increase the amount of convolutional layers
+
+{{% fragment %}}
+<a href="https://colab.research.google.com/drive/1BrLz2ka-IfoUp-wS-P_rZZBty4OZApdA?usp=sharing" target="_blank">Convnet Notebook</a>
+{{% /fragment %}}
+
+
+
+
